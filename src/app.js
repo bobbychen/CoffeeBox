@@ -6,7 +6,6 @@ import mongoose from './utils/mongoose';
 import webServer from './utils/webserver';
 import routes from './controllers/all.api';
 
-const staticPath = path.join(__dirname, '../../www');
 
 const mongodb = mongoose.init(
     config.dbHosts, config.dbName,
@@ -15,7 +14,6 @@ const mongodb = mongoose.init(
 
 const app = express();
 
-app.use(express.static(staticPath));
 app.use('/', routes);
 
 const server = webServer.run(app);

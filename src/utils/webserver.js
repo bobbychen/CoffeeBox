@@ -39,7 +39,6 @@ const defaultOptions = {
     port: 3000,
     https: null,
 };
-
 export default {
     run: (app, opts = {}) =>{
         opts = Object.assign({}, defaultOptions, opts);

@@ -1,9 +1,9 @@
 const staticConfig = {
     port: 3000,
     dbUser: '',
-    dbName: '',
+    dbName: 'coffeeBox',
     dbPass: '',
-    dbHosts: '',
+    dbHosts: '127.0.0.1:27017',
     dbParams: '',
 };
 

@@ -23,8 +23,8 @@ const wrap = {
         const uri = `mongodb://${hosts}/${name}?${params}`;
         const option = {
             user, pass,
-            useMongoClient: true,
             promiseLibrary: Promise,
+            useNewUrlParser: true,
             ...opts,
         };
 
