@@ -6,7 +6,7 @@ const baseUrl = '/wxa-api/api';
 
 const router = new express.Router();
 
-router.get(`${baseUrl}/group/activity`, async (req, res) => {
+router.get(`${baseUrl}/group/activity/list`, async (req, res) => {
     const groupActivityVo = await groupActivity.find({ type: ActivityType.onlyNewUsers});
     const oldListActivityVo = await groupActivity.find({ type: ActivityType.AllUsers});
 
