@@ -24,4 +24,20 @@ router.get(`${baseUrl}/group/activity/list`, async (req, res) => {
     }).end();
 });
 
+router.get(`${baseUrl}/group/activity/detail`, async (req, res) => {
+    return res.json({
+        code: 200,
+        data:{
+            isNewUser: true,
+            isFocus: true,
+            groupRule: {},
+            strangeGroup: [],
+            detailVo: [],
+            totalMember: 0,
+        },
+        message: '成功',
+        msgType: 0,
+    }).end();
+});
+
 export default router;
