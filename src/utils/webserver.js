@@ -1,5 +1,6 @@
 import http from 'http';
 import https from 'https';
+import fs from 'fs';
 
 const util = {
     parseHttpServerError: (error, port) =>{
@@ -37,14 +38,16 @@ const registerEventHandlers = (server, opts) =>{
 
 const defaultOptions = {
     port: 3000,
-    https: null,
+    https: {
+        key: fs.readFileSync(__dirname+'/../certificates/server.key'),
+        cert: fs.readFileSync(__dirname+'/../certificates/server.cert')
+    }
 };
 export default {
     run: (app, opts = {}) =>{
         opts = Object.assign({}, defaultOptions, opts);
-
         let server = opts.https
-            ? https.createServer(loadHttpsConfig(opts), app)
+            ? https.createServer(opts.https, app)
             : http.createServer(app);
 
         registerEventHandlers(server, opts).listen(opts.port);
