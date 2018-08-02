@@ -7,6 +7,11 @@ const baseUrl = '/wxa-api/api';
 
 const router = new express.Router();
 
+const toItemObj = (coffeeItem) => {
+    const {_id,name, price, unit, summary, description, priceStr, imageUrl, descriptionUrl, sort} = coffeeItem;
+    return {itemId: _id, name, price, unit, summary, description, priceStr, imageUrl, descriptionUrl, sort};
+};
+
 router.get(`${baseUrl}/mainbuyapi/getgoods`, async (req, res) => {
     const coffeeCategories = await CoffeeCategory.find();
 
@@ -20,10 +25,7 @@ router.get(`${baseUrl}/mainbuyapi/getgoods`, async (req, res) => {
         );
         return {
             _id,name,iconUrl,selectedNightIconUrl,nightIconUrl,titleImageUrl,type,nightSort,sort,
-            itemList: coffeeItem.map((item) => {
-                const {_id} = item;
-                return {itemId: _id, ...item};
-            }),
+            itemList: coffeeItem.map((item) => toItemObj(item)),
         }
     }));
 
