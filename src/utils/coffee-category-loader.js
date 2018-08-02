@@ -19,7 +19,7 @@ const coffeeCategorySchema = new Schema({
 
 const CoffeeCategory = mongoose.model('CoffeeCategory', coffeeCategorySchema);
 
-const workbook = XLSX.readFile('./coffee-category.xlsx');
+const workbook = XLSX.readFile('./coffee.xlsx');
 
 const coffeeCategory  = workbook.Sheets['coffee-category'];
 const json = XLSX.utils.sheet_to_json(coffeeCategory);

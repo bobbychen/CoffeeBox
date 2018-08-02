@@ -28,7 +28,7 @@ router.get(`${baseUrl}/mainbuyapi/getgoods`, async (req, res) => {
         code: 200,
         data:{
             menuList: menuList,
-            cart: '',
+            cart: null,
             promotionList: [],//promotion logic??
         },
         message: '成功',
