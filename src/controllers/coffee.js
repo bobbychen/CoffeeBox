@@ -20,7 +20,10 @@ router.get(`${baseUrl}/mainbuyapi/getgoods`, async (req, res) => {
         );
         return {
             _id,name,iconUrl,selectedNightIconUrl,nightIconUrl,titleImageUrl,type,nightSort,sort,
-            itemList: coffeeItem,
+            itemList: coffeeItem.map((item) => {
+                const {_id} = item;
+                return {itemId: _id, ...item};
+            }),
         }
     }));
 
