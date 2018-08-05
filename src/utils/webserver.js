@@ -16,6 +16,11 @@ const util = {
     },
 };
 
+const ssl = {
+    privateKeyFile: '/etc/letsencrypt/live/wx.harryyan.xin/privkey.pem',
+    certificateFile: '/etc/letsencrypt/live/wx.harryyan.xin/fullchain.pem'
+};
+
 const registerEventHandlers = (server, opts) =>{
     server.on('listening', () =>{
         const serverTypes = opts.https ? 'HTTPS' : 'HTTP';
@@ -39,8 +44,10 @@ const registerEventHandlers = (server, opts) =>{
 const defaultOptions = {
     port: 3000,
     https: {
-        key: fs.readFileSync(__dirname+'/../certificates/server.key'),
-        cert: fs.readFileSync(__dirname+'/../certificates/server.cert')
+        // key: fs.readFileSync(__dirname+'/../certificates/server.key'),
+        // cert: fs.readFileSync(__dirname+'/../certificates/server.cert')
+        key: fs.readFileSync(ssl.privateKeyFile),
+        cert: fs.readFileSync(ssl.certificateFile)
     }
 };
 export default {
