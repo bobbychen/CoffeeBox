@@ -1,8 +1,8 @@
 # CoffeeBox
 
-##pre start 
+## pre start 
 
-####install node
+#### install node    
 `wget https://nodejs.org/dist/v8.11.3/node-v8.11.3.tar.gz`
 
 `tar -zxvf node-v8.11.3.tar.gz -C node` 
@@ -12,20 +12,20 @@
 check:
 **node -v**
 
-####install git
+#### install git
  `yum install git`
  
-####install mongodb
+#### install mongodb
 
 [install mongodb](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
 
 
-####Clone Project
+#### Clone Project
 `git clone https://github.com/bobbychen/CoffeeBox.git`
 
 `npm install`
  
-####Create system service
+#### Create system service
 
 create coffee-box.service file under /etc/systemd/system directory
 
