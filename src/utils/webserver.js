@@ -42,7 +42,7 @@ const registerEventHandlers = (server, opts) =>{
 };
 
 const defaultOptions = {
-    port: 3000,
+    port: 443,
     https: {
         key: fs.readFileSync(ssl.privateKeyFile),
         cert: fs.readFileSync(ssl.certificateFile)

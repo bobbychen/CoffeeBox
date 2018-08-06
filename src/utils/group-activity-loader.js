@@ -30,7 +30,7 @@ const json = XLSX.utils.sheet_to_json(groupActivity);
 
 Promise.all(json.map((activity) => {
     console.log('import item:', activity);
-    return groupActivity.create(activity);
+    return GroupActivity.create(activity);
 })).then(() => {
     mongoose.disconnect();
 });
