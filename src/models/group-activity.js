@@ -20,7 +20,6 @@ const GroupActivitySchema = new Schema({
     sort: Number,
     timeLeft: Number,
     inventoryLeft: Number,
-
 });
 
 const GroupActivity = mongoose.model('GroupActivity', GroupActivitySchema);
