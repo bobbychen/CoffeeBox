@@ -7,6 +7,7 @@ import coffeeAssist from './coffee-assist';
 import coffeeWish from './coffee-wish';
 import order from './order';
 import regeo from './regeo';
+import groupRecord from './group-record';
 
 const router = new express.Router();
 
@@ -22,5 +23,6 @@ router.use(coffeeAssist);
 router.use(coffeeWish);
 router.use(order);
 router.use(regeo);
+router.use(groupRecord);
 
 export default router;
