@@ -8,6 +8,7 @@ import coffeeWish from './coffee-wish';
 import order from './order';
 import regeo from './regeo';
 import groupRecord from './group-record';
+import authorization from './authorization';
 
 const router = new express.Router();
 
@@ -24,5 +25,6 @@ router.use(coffeeWish);
 router.use(order);
 router.use(regeo);
 router.use(groupRecord);
+router.use(authorization);
 
 export default router;
