@@ -29,14 +29,35 @@ router.get(`${baseUrl}/group/activity/list`, async (req, res) => {
 });
 
 router.get(`${baseUrl}/group/activity/detail`, async (req, res) => {
+    const {menu_id, city_code, client_session_key} = req.params;
+
+    const activity = await groupActivity.find({ _id: menu_id });
+    const groupRule = await activityRule.findOne({});
+
+    const {_id: groupId,name, description,oldPrice,timeLeft: activityTime,imageUrl,priceLabel,inventoryLeft } = activity;
     return res.json({
         code: 200,
         data:{
             isNewUser: true,
             isFocus: true,
-            groupRule: {},
+            groupRule: groupRule,
             strangeGroup: [],
-            detailVo: [],
+            detailVo: {
+                groupId,
+                name,
+                description,
+                oldPrice,
+                activityTime,
+                imageUrl,
+                label: priceLabel,
+                inventoryLeft,
+            },
+            groupType: [
+                {
+                    groupAccount: 3,
+                    price: 25,
+                }
+            ],
             totalMember: 0,
         },
         message: '成功',
